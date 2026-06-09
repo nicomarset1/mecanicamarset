@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title>Mecanica Marset</title>
+  <defs>
+    <linearGradient id="bg" x1="10" y1="8" x2="86" y2="88" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10151f"/>
+      <stop offset="1" stop-color="#06080c"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="18" y1="16" x2="78" y2="80" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#232a35"/>
+      <stop offset="1" stop-color="#141922"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="26" y1="26" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f4f7"/>
+      <stop offset="1" stop-color="#b9c0c9"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="36" y1="20" x2="60" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff6058"/>
+      <stop offset="1" stop-color="#bb2d2f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="96" height="96" rx="22" fill="url(#bg)"/>
+  <rect x="8" y="8" width="80" height="80" rx="18" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+
+  <path d="M25 55c1.5-9 6.7-17 13.7-20.7 2.3-1.2 5.4-2.3 8.3-2.3h1c3 0 6 1.1 8.3 2.3C63.3 38 68.5 46 70 55v7.8c0 1.7-1.4 3.2-3.2 3.2h-1.4l-2 4.7h-5.2l-1.8-4.7H39.6l-1.8 4.7h-5.2l-2-4.7h-1.4c-1.8 0-3.2-1.5-3.2-3.2V55Z" fill="url(#panel)" filter="url(#shadow)"/>
+  <path d="M32 54.5c1.2-6.1 4.6-10.7 9.2-13.1 1.5-.8 3.7-1.5 5.8-1.5h1c2.1 0 4.3.7 5.8 1.5 4.6 2.4 8 7 9.2 13.1" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M28.5 54.8h39" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M33 56.2h30" stroke="rgba(255,255,255,0.14)" stroke-width="1.8" stroke-linecap="round"/>
+
+  <circle cx="34.5" cy="63" r="4.7" fill="url(#metal)"/>
+  <circle cx="61.5" cy="63" r="4.7" fill="url(#metal)"/>
+  <circle cx="34.5" cy="63" r="2.3" fill="#0b1018"/>
+  <circle cx="61.5" cy="63" r="2.3" fill="#0b1018"/>
+
+  <path d="M39 43.5h18" stroke="url(#metal)" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M41 40.5h14" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M43.5 48.8h9" stroke="rgba(255,255,255,0.2)" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M72 31.5l5.5-5.5" stroke="url(#accent)" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M72.2 31.6l2.2 2.2" stroke="url(#accent)" stroke-width="2.8" stroke-linecap="round"/>
+</svg>
