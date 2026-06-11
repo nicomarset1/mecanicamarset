@@ -6,6 +6,7 @@ const sectionLinks = Array.from(navLinks.querySelectorAll('a[href^="#"]'));
 const sections = sectionLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+const desktopNavQuery = window.matchMedia("(min-width: 921px)");
 let closeTimer;
 
 const closeMenu = () => {
@@ -80,41 +81,38 @@ const setActiveSection = (sectionId) => {
   });
 };
 
-if ("IntersectionObserver" in window) {
-  const visibleSections = new Map();
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          visibleSections.set(entry.target.id, entry.intersectionRatio);
-        } else {
-          visibleSections.delete(entry.target.id);
-        }
-      });
-
-      const activeSection = Array.from(visibleSections.entries()).sort((a, b) => b[1] - a[1])[0];
-
-      if (activeSection) {
-        setActiveSection(activeSection[0]);
-      }
-    },
-    {
-      rootMargin: "-35% 0px -45% 0px",
-      threshold: [0.1, 0.25, 0.5, 0.75],
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-} else {
-  window.addEventListener("scroll", () => {
-    const navOffset = nav.offsetHeight + 48;
-    const activeSection = sections
-      .slice()
-      .reverse()
-      .find((section) => section.offsetTop <= window.scrollY + navOffset);
-
-    if (activeSection) {
-      setActiveSection(activeSection.id);
-    }
+const clearActiveSection = () => {
+  sectionLinks.forEach((link) => {
+    link.classList.remove("is-active");
+    link.removeAttribute("aria-current");
   });
-}
+};
+
+const updateActiveSection = () => {
+  if (!desktopNavQuery.matches) {
+    clearActiveSection();
+    return;
+  }
+
+  const navOffset = nav.offsetHeight + 64;
+  const firstSection = sections[0];
+
+  if (!firstSection || window.scrollY + navOffset < firstSection.offsetTop) {
+    clearActiveSection();
+    return;
+  }
+
+  const activeSection = sections
+    .slice()
+    .reverse()
+    .find((section) => section.offsetTop <= window.scrollY + navOffset);
+
+  if (activeSection) {
+    setActiveSection(activeSection.id);
+  }
+};
+
+window.addEventListener("scroll", updateActiveSection, { passive: true });
+window.addEventListener("resize", updateActiveSection);
+desktopNavQuery.addEventListener("change", updateActiveSection);
+updateActiveSection();
